@@ -1,0 +1,46 @@
+﻿@model HW7Project.Models.Members
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div>
+
+    <hr />
+    <div class="card">
+        <div class="card-header">
+            <h3>@Html.DisplayFor(model => model.MemberName)</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5>生日：@Html.DisplayFor(model => model.MemberBirdthday)</h5>
+                    <h5>帳號：@Html.DisplayFor(model => model.Account)</h5>
+                    <h5>密碼：○○○○○○○○○○</h5>
+                </div>
+                <div class="col-md-4">
+                    @{
+                        var photo = Model.MemberPhotoFile == null ? "DefaultImage.jpg" : Model.MemberPhotoFile;
+
+                    }
+
+                    <img src="~/MemberPhotos/@photo" class="img-thumbnail" />
+
+                </div>
+
+            </div>
+        </div>
+        <div class="card-footer">
+            創建日期：@Html.DisplayFor(model => model.CreatedDate)
+        </div>
+
+    </div>
+
+    
+</div>
+<p class="mt-3">
+    @Html.ActionLink("編輯", "Edit", new { id = Model.MemberID } ,new { @class = "btn btn-info" }) 
+    @Html.ActionLink("返回", "Index", null, new { @class = "btn btn-success" })
+</p>
