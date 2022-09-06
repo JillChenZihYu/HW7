@@ -23,6 +23,10 @@
     }
 </div>
 
+<span style="position:fixed;right:30px;bottom:60px;">
+    <span class="badge badge-light bg-danger text-white" style="font-size:1.3rem"></span>
+    <a href="@Url.Action("MyCart")"><span style="font-size: 4rem;text-shadow:0px 0px 10px #b6ff00" class=" bi bi-cart4"></span></a>
+</span>
 
 
 @section scripts{
@@ -34,37 +38,51 @@
             cart = JSON.parse(localStorage.getItem("cart"));
         }
 
+        $('.badge-light').text(cart.length);
+
+
 
         $('.addCart').click(function () {
 
-            let product = $(this).closest('.card'); //this -> addCart
-
-            let newPID = product.find(".PID").val();
-            //let pName = product.find(".PName").text();
-            //let price = product.find(".Price").attr("title");//抓title這個屬性的值aka價格的字串
-            //let amount = 1;
+            let product = $(this).closest('.card');
+            let newPID = product.find('.PID').val();
 
 
-            if (cart.length > 0) {
-
-                for (let index in cart) {
-
-                    if (newPID == cart[index]["PID"]) {
-                        cart[index]["Amount"] += 1;
-                        localStorage.setItem("cart", JSON.stringify(cart));
-                        alert('商品數量已更新');
-                        break;
-                    }
-                    else if (cart.length - 1 == index) {
-                        setCart(product);
-                    }
-                }
-
-            }
-            else {
+            let foundItem = cart.find((item) => item.PID == newPID);
+            if (foundItem === undefined) {
                 setCart(product);
             }
+            else {
+                foundItem.Amount += 1;
+                localStorage.setItem("cart", JSON.stringify(cart));
+                alert('商品數量已更新');
+            }
 
+
+            //下面程式太冗長了!!改成上面的寫法
+            //let pName = product.find(".PName").text();
+            //let price = product.find(".Price").attr("title");
+            //let amount = 1;
+
+            //if (cart.length > 0) {
+
+            //    for (let index in cart) {
+
+            //        if (newPID == cart[index]["PID"]) {
+            //            cart[index]["Amount"] += 1;
+            //            localStorage.setItem("cart", JSON.stringify(cart));
+            //            alert('商品數量已更新');
+            //            break;
+            //        }
+            //        else if (cart.length - 1 == index) {
+            //            setCart(product);
+            //        }
+            //    }
+
+            //}
+            //else {
+            //    setCart(product);
+            //}
 
         });
 
@@ -76,17 +94,15 @@
                 Amount: 1
             }
 
-            //newItem 只有按下去的單一商品
-            //cart  累加之前加入購物車的商品
-            cart.push(newItem);//加入購物車
+            cart.push(newItem);
 
-            localStorage.setItem("cart", JSON.stringify(cart));//寫成JSON的字串
+            localStorage.setItem("cart", JSON.stringify(cart));
             alert('已加入購物車');
+
+            $('.badge-light').text(cart.length);
         }
 
 
 
     </script>
 }
-
-

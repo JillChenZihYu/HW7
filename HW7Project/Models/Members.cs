@@ -64,25 +64,32 @@ namespace HW7Project.Models
             }
             set
             {
-                byte[] hashValue;
-                string result = "";
-
-                System.Text.UnicodeEncoding ue = new System.Text.UnicodeEncoding();
-
-                byte[] pwBytes = ue.GetBytes(value); //GetBytes把value(密碼內容)改為byte
-
-                SHA256 shHash = SHA256.Create(); //創造一個SHA256的物件
-
-                hashValue = shHash.ComputeHash(pwBytes); //ComputeHash做雜湊的運算
-
-                foreach (byte b in hashValue)
-                {
-                    result += b.ToString();
-                }
-
-                password = result;
+                password = getHashPassword(value);
             }
 
+        }
+
+
+
+        public static string getHashPassword(string pw)
+        {
+            byte[] hashValue;
+            string result = "";
+
+            System.Text.UnicodeEncoding ue = new System.Text.UnicodeEncoding();
+
+            byte[] pwBytes = ue.GetBytes(pw);//GetBytes把value(密碼內容)改為byte
+
+            SHA256 shHash = SHA256.Create();//創造一個SHA256的物件
+
+            hashValue = shHash.ComputeHash(pwBytes);//ComputeHash做雜湊的運算
+
+            foreach (byte b in hashValue)
+            {
+                result += b.ToString();
+            }
+
+            return result;
         }
 
         //自訂驗證規則寫法

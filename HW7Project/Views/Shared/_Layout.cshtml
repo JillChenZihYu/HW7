@@ -18,12 +18,23 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="MynavbarMenu">
-                <div class="navbar-nav">
-                    @Html.ActionLink("首頁", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
-                    @Html.ActionLink("商品查詢", "ProductList", "Home", new { area = "" }, new { @class = "nav-link" })
-                    @Html.ActionLink("登入", "Login", "HomeManager", new { area = "" }, new { @class = "nav-link" })
+                <ul class="navbar-nav">
+                    <li class="nav-item">@Html.ActionLink("首頁", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("商品查詢", "ProductList", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("購物車", "MyCart", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 
-                </div>
+
+                </ul>
+            </div>
+            <div>
+                @if (Session["member"] == null)
+                {
+                    @Html.ActionLink("登入", "Login", "Home", new { area = "" }, new { @class = "nav-link btn btn-outline-light btn-sm" })
+                }
+                else
+                {
+                    @Html.ActionLink("登出", "Logout", "Home", new { area = "" }, new { @class = "nav-link btn btn-light btn-sm" })
+                }
             </div>
         </div>
     </div>

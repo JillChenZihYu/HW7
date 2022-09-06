@@ -269,6 +269,7 @@
     <Compile Include="Controllers\HomeManagerController.cs" />
     <Compile Include="Controllers\LoginCheck.cs" />
     <Compile Include="Controllers\LogReporter.cs" />
+    <Compile Include="Controllers\MemberOrderController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -282,6 +283,7 @@
     <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\PayTypes.cs" />
     <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\SetData.cs" />
     <Compile Include="Models\Shippers.cs" />
     <Compile Include="Models\VMLogin.cs" />
     <Compile Include="Models\VMMember.cs" />
@@ -311,6 +313,9 @@
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Home\ProductList.cshtml" />
+    <Content Include="Views\Home\MyCart.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\MemberOrder\_Order.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
