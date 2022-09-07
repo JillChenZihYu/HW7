@@ -16,3 +16,45 @@ textarea {
     max-width: 280px;
 }
 
+footer {
+    margin-bottom: 0;
+}
+
+body {
+}
+
+caption {
+    color: #344aca;
+    text-align: center;
+    caption-side: top;
+    font-size: 1.3rem;
+}
+
+
+.table-hover tbody tr:hover {
+    color: #ff0000;
+    font-size: 1.3rem;
+    background-color: #b6ff00;
+}
+
+.MyTable {
+    overflow: auto;
+}
+
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #ff0000;
+    content: ">";
+}
+
+
+
+
+.text-shadow {
+    text-shadow: 2px 2px 3px black;
+}
+
+.modal-content {
+    background-image: url('../photo/03.jpg');
+    background-repeat: round;
+}
