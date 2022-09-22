@@ -14,6 +14,24 @@ namespace HW7Project
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Cart",
+                url: "購物車",
+                defaults: new { controller = "Home", action = "MyCart" }
+            );
+            routes.MapRoute(
+                name: "Cart2",
+                url: "Cart",
+                defaults: new { controller = "Home", action = "MyCart" }
+            );
+            routes.MapRoute(
+                name: "Cart3",
+                url: "MyCart",
+                defaults: new { controller = "Home", action = "MyCart" }
+            );
+
+            routes.MapMvcAttributeRoutes();
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

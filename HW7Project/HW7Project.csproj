@@ -122,6 +122,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="ErrorPage.html" />
     <Content Include="Global.asax" />
     <Content Include="MemberPhotos\edfadwgf.jpg" />
     <Content Include="MemberPhotos\happy.jpg" />
@@ -319,6 +320,9 @@
     <Content Include="Views\MemberOrder\_Order.cshtml" />
     <Content Include="Views\Shared\_ProductList.cshtml" />
     <Content Include="Views\Shared\_ProductPhotoShow.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Error2.cshtml" />
+    <Content Include="Views\Shared\Error3.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

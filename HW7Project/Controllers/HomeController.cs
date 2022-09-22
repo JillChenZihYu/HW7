@@ -10,6 +10,29 @@ namespace HW7Project.Controllers
     public class HomeController : Controller
     {
         HW7ProjectContext db = new HW7ProjectContext();
+
+        //在FilterConfig裡設定View為Error2，但在這個Action設定View為Error3
+        [HandleError(View = "Error3")]
+        public ActionResult ExciptionDemo()
+        {
+            int i = 0;
+
+            int j = 100 / i;
+
+
+            return View();
+        }
+
+
+        public ActionResult Test()
+        {
+
+            throw new NotImplementedException();
+
+        }
+
+
+
         public ActionResult Index()
         {
 

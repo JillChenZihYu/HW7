@@ -12,6 +12,11 @@ namespace HW7Project.App_Start
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             //filters.Add(new LogReporter());
+
+            filters.Add(new HandleErrorAttribute()
+            {
+                View = "Error2"
+            }); ;
         }
 
 

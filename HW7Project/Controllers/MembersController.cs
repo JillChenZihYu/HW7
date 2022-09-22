@@ -92,6 +92,20 @@ namespace HW7Project.Controllers
             return View(); //原本預設是return View(members)，但因為有寫自訂驗證在Member裡，網頁上資料卻是寫在VMMember，在網頁輸入資料時會報錯，所以把members拿掉
         }
 
+        [Route(@"M/{name}")]
+        public ActionResult EditByName(string name)
+        {
+
+            Members members = db.Members.Where(m => m.MemberName == name).FirstOrDefault();
+            if (members == null)
+            {
+                return HttpNotFound();
+            }
+            return View("Edit", members);
+        }
+
+
+
         // GET: Members/Edit/5
         public ActionResult Edit(int? id)
         {
